@@ -1,5 +1,7 @@
 package chobo.springweb.service;
 
+import java.io.IOException;
+
 public abstract class BaseKafkaService {
-    abstract void handle(String message);
+    abstract void consume(String message) throws IOException;
 }

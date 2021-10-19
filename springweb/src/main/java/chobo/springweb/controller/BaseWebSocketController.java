@@ -3,7 +3,7 @@ package chobo.springweb.controller;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 
-@ServerEndpoint("/websocket")
+@ServerEndpoint("/websockets")
 public abstract class BaseWebSocketController {
     @OnOpen
     public void onOpen(Session session) {

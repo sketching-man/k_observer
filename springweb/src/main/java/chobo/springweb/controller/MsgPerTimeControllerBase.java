@@ -4,6 +4,8 @@ import chobo.springweb.service.MsgPerTimeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.io.IOException;
+
 @Controller
 public class MsgPerTimeControllerBase extends BaseWebSocketController {
 
@@ -16,6 +18,10 @@ public class MsgPerTimeControllerBase extends BaseWebSocketController {
 
     @Override
     void onMessage(String message) {
-        this.service.handle(message);
+        try {
+            this.service.consume(message);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
